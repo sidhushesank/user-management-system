@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Management System</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/src/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar" style="display:none;">
+  <div class="nav-left">
+    <h3>User Management</h3>
+  </div>
+  <div class="nav-right">
+    <button id="backHomeBtn">Home</button>
+    <button id="logoutBtn" class="danger-btn">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ================= ROLE SELECT ================= -->
+  <div id="roleSelect">
+    <div class="role-wrapper">
+
+      <h1 class="role-title">User Management System</h1>
+      <p class="role-subtitle">Choose how you want to continue</p>
+
+      <div class="role-cards">
+
+        <!-- ADMIN CARD -->
+        <div class="role-card admin-card" id="adminBtn">
+          <div class="role-icon">
+            <svg width="40" height="40" fill="#3b82f6" viewBox="0 0 24 24">
+              <path d="M12 2l2.5 5h5l-4 3 1.5 5-5-3.5L7 15l1.5-5-4-3h5z"/>
+            </svg>
+          </div>
+          <h3>Admin Access</h3>
+          <p>Manage users, edit records and view analytics</p>
+        </div>
+
+        <!-- USER CARD -->
+        <div class="role-card user-card" id="userBtn">
+          <div class="role-icon">
+            <svg width="40" height="40" fill="#10b981" viewBox="0 0 24 24">
+              <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+            </svg>
+          </div>
+          <h3>User Access</h3>
+          <p>View users and add new entries</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= ADMIN LOGIN ================= -->
+  <div id="adminLogin" style="display:none;">
+    <div class="login-wrapper">
+      <div class="login-card">
+        <h2>Admin Login</h2>
+
+        <input id="adminEmail" type="email" placeholder="Enter Admin Email" />
+        <input id="adminPassword" type="password" placeholder="Enter Password" />
+
+        <div class="login-actions">
+          <button id="adminLoginBtn" class="primary-btn">Login</button>
+          <button id="backBtn" class="secondary-btn">Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= DASHBOARD ================= -->
+  <div id="dashboard" style="display:none;">
+
+    <h2 class="dashboard-title">Dashboard</h2>
+
+    <div class="dashboard-grid">
+
+      <!-- LEFT PANEL -->
+      <div class="left-panel">
+
+        <div id="adminSection" style="display:none;">
+
+          <div class="users-header">
+            <h3>Total Users: <span id="userCount">0</span></h3>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="user-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="userTableBody"></tbody>
+            </table>
+          </div>
+
+          <h3 class="chart-title">Role Distribution</h3>
+          <canvas id="roleChart" height="120"></canvas>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
+        <h3>Add User</h3>
+        <input id="name" placeholder="Name" />
+        <input id="email" placeholder="Email" />
+        <button id="submitBtn">Submit</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
