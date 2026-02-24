@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/users";
+const API_URL = "https://user-management-system-5988.onrender.com/api/users";
 
 let currentRole = null;
 let chartInstance = null;
